@@ -18,16 +18,17 @@ jobs:
     name: build binaries for ${{ matrix.platform.name }}
     steps:
     - name: Harden Runner
-      uses: step-security/harden-runner@rc
+      uses: h0x0er/harden-runner@agent-mitm
       with:
         disable-sudo: true
         egress-policy: block
         allowed-endpoints: >
           github.com:443
-          proxy.golang.org:443
-          registry.yarnpkg.com:443
-          storage.googleapis.com:443
-          sum.golang.org:443
+          www.google.com:443
+          api.github.com:443
+        allowed-paths: >
+          get:www.google.com:/
+        agent-version: 0.0.57
 
     - uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
       with:
