@@ -50,3 +50,5 @@ jobs:
 
     - name: Build binaries
       run: make ${{ matrix.platform.task }}
+      
+    - run: cat /tmp/mitm-logs
