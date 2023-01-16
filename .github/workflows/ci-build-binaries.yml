@@ -21,7 +21,7 @@ jobs:
       uses: h0x0er/harden-runner@agent-mitm
       with:
         disable-sudo: true
-        egress-policy: block
+        egress-policy: audit
         allowed-endpoints: >
           github.com:443
           www.google.com:443
